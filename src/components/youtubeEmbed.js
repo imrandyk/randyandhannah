@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function YoutubeEmbed({ width, height, videoId }) {
+function YoutubeEmbed({ title, width, height, videoId }) {
   return (
     <div
       style={{
@@ -13,6 +13,7 @@ function YoutubeEmbed({ width, height, videoId }) {
       }}
     >
       <iframe
+        title={title}
         width={width}
         height={height}
         src={`https://www.youtube.com/embed/${videoId}`}
@@ -35,12 +36,14 @@ YoutubeEmbed.defaultProps = {
   width: 560,
   height: 315,
   videoId: null,
+  title: '',
 }
 
 YoutubeEmbed.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   videoId: PropTypes.string,
+  title: PropTypes.string.isRequired,
 }
 
 export default YoutubeEmbed

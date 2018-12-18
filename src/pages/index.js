@@ -1,34 +1,37 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Bio from "../components/bio";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import YoutubeEmbed from "../components/youtubeEmbed";
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import YoutubeEmbed from '../components/youtubeEmbed'
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="All posts"
           keywords={[
-            "randy",
-            "randy keyes",
-            "hannah",
-            "hannah keyes",
-            "keyes",
-            "randy & hannah",
-            "randy and hannah",
-            "randy & hannah keyes",
-            "randy and hannah keyes"
+            'randy',
+            'randy keyes',
+            'hannah',
+            'hannah keyes',
+            'keyes',
+            'randy & hannah',
+            'randy and hannah',
+            'randy & hannah keyes',
+            'randy and hannah keyes',
           ]}
         />
         <Bio />
-        <YoutubeEmbed videoId="Fp990KAKFwE" />
+        <YoutubeEmbed
+          title="Secret Colorado Elopement | Extended Highlight"
+          videoId="Fp990KAKFwE"
+        />
         {/* {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -48,11 +51,11 @@ class BlogIndex extends React.Component {
           )
         })} */}
       </Layout>
-    );
+    )
   }
 }
 
-export default BlogIndex;
+export default BlogIndex
 
 export const pageQuery = graphql`
   query {
@@ -76,4 +79,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
