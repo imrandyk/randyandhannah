@@ -1,22 +1,35 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React from "react";
+import { Link, graphql } from "gatsby";
 
-import Bio from '../components/bio'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import YoutubeEmbed from "../components/youtubeEmbed";
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    const siteTitle = data.site.siteMetadata.title;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" keywords={['blog', 'gatsby', 'javascript', 'react']} />
+        <SEO
+          title="All posts"
+          keywords={[
+            "randy",
+            "randy keyes",
+            "hannah",
+            "hannah keyes",
+            "keyes",
+            "randy & hannah",
+            "randy and hannah",
+            "randy & hannah keyes",
+            "randy and hannah keyes"
+          ]}
+        />
         <Bio />
-        {posts.map(({ node }) => {
+        <YoutubeEmbed videoId="Fp990KAKFwE" />
+        {/* {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={node.fields.slug}>
@@ -33,13 +46,13 @@ class BlogIndex extends React.Component {
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </div>
           )
-        })}
+        })} */}
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
@@ -63,4 +76,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
